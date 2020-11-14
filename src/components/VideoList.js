@@ -20,25 +20,26 @@ const useStyles = makeStyles((theme) => ({
 
 const VideoItem = ({video}) => {
     const {v_id, v_name} = video; 
+    return(
     <ListItem button>
-        
         <ListItemText primary={v_name} />
     </ListItem>
+    )
 
 }
 
-const VideoList = (props) => {
-    ticker = props.ticker;
-    console.log(ticker);
-    const videos = useSelector(state => state.courses[ticker].videos)
-    console.log(videos);
-    const [selectedVideo, setSelectedVideo] = useState[videos[0]]
-    if(!videos){return(<div>Loading</div>)}
+const VideoList = ({id}) => {
+    console.log(id)
+    const courses = useSelector(state => state.courses)
+    console.log(courses[id].videos);
+    const videos = courses[id].videos;
+    // const [selectedVideo, setSelectedVideo] = useState[videos[0]]
+
     return(
     <List>
         {videos.map((video) => (<VideoItem key={video.v_id} video={video}/>))}
     </List>
-     )
+    )
 }
 
 export default VideoList;

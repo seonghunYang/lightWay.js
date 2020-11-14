@@ -9,7 +9,7 @@ import CardPage from '../components/Card';
 import GradeFilterChip from '../components/GradeFilterChip';
 import CategoryFilterAvatar from '../components/CategroyFilterAvatar';
 import { GridListTileBar } from '@material-ui/core';
-import { selectedCourses } from '../actions/index';
+import { selectCourses } from '../actions/index';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid:{
@@ -38,11 +38,12 @@ export default function Home(){
 
     const clickedChip = (grade) => {
       let filterData = courses.filter(course => (course.grade == grade));
-      dispatch(selectedCourses(filterData));
+      dispatch(selectCourses(filterData));
     }
+
     const clickedAvatar = (category) => {
-      let filterData = selectedCourses.filter(course => (course.category == category));
-      dispatch(selectedCourses(filterData));
+      let filterData = courses.filter(course => (course.category == category));
+      dispatch(selectCourses(filterData));
     }
 
     return(

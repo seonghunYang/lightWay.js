@@ -3,7 +3,7 @@ import produce from "immer";
 const initialState = {
   courses: [
     {
-      id: 1,
+      id: 0,
       name: "성교육",
       teacher: "양성훈",
       grade: 1,
@@ -11,28 +11,28 @@ const initialState = {
       category: "sex"
     },
     {
-      id: 2,
+      id: 1,
       name: "인성교육",
       teacher: "김민정",
       grade: 1,
       videos: [
         {
-          v_id: 1,
+          v_id: 0,
           v_name: "행복하게 사는법",
         },
         {
-          v_id: 2,
+          v_id: 1,
           v_name: "행복하게 사는법2",
         },
         {
-          v_id: 3,
+          v_id: 2,
           v_name: "행복하게 사는법3",
         }
     ],
     category: "etiquett"
     },
     {
-      id: 3,
+      id: 2,
       name: "진로교육",
       teacher: "정지환",
       grade: 2,
@@ -40,7 +40,7 @@ const initialState = {
       category: "smoke"
     },
     {
-      id: 4,
+      id: 3,
       name: "성교육",
       teacher: "김지현",
       grade: 1,
@@ -48,7 +48,7 @@ const initialState = {
       category: "roadmap"
     },
     {
-      id: 5,
+      id: 4,
       name: "성교육",
       teacher: "김지현",
       grade: 3,
@@ -56,7 +56,7 @@ const initialState = {
       category: "heart"
     },
     {
-      id: 6,
+      id: 5,
       name: "성교육",
       teacher: "김지현",
       grade: 1,
