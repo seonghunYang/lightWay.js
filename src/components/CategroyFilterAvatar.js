@@ -26,8 +26,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function CategoryFilterAvatar({category}) {
+export default function CategoryFilterAvatar({category, clickedAvatar}) {
   const classes = useStyles();
+
+  const handleClick = () => {
+    clickedAvatar(category);
+  }
   const categorys = {
     sex: [<FavoriteBorderIcon fontSize="large" />, "성교육"], 
     etiquett: [<EmojiPeopleIcon fontSize="large" />, "예절교육"],
@@ -41,7 +45,7 @@ export default function CategoryFilterAvatar({category}) {
         <Avatar className={classes.large} >
           {categorys[category][0]}
         </Avatar>
-        <Chip label={categorys[category][1]} variant="outlined" />
+        <Chip clickable onClick={handleClick} label={categorys[category][1]} variant="outlined" />
       </Grid>
   );
 }

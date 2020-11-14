@@ -64,22 +64,11 @@ const CourseItem =({course}) => {
 const CardPage = ({selectedGrade}) => {
     const classes = useStyles();
     const courses = useSelector(state => state.courses)
-    const [selectedCourses, setSelectedCourses] = useState(courses);
-    const filter = (courses) =>{
-      if (selectedGrade == null) {
-        return courses;
-      } else {
-        const filterData = courses.filter(course => (course.grade == selectedGrade))
-        return filterData;
-      }
-    };
-    const filterData = filter(courses);
-    if (selectedGrade && selectedCourses[0].grade != selectedGrade ){
-      setSelectedCourses(filterData);
-    }
+    const selectedCourses = useSelector(state => state.selectedCourses)
+    
     return(
         <Grid container spacing={3}>
-            {selectedCourses && selectedCourses.map((course) => (<CourseItem key={course.id} course={course}/>))}
+            {selectedCourses ? selectedCourses.map((course) => (<CourseItem key={course.id} course={course}/>)) : courses.map((course) => (<CourseItem key={course.id} course={course}/>))}
         </Grid>
     )
 

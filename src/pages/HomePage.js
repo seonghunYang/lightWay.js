@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from 'react-redux'
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -8,6 +9,7 @@ import CardPage from '../components/Card';
 import GradeFilterChip from '../components/GradeFilterChip';
 import CategoryFilterAvatar from '../components/CategroyFilterAvatar';
 import { GridListTileBar } from '@material-ui/core';
+import { selectedCourses } from '../actions/index';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid:{
@@ -30,11 +32,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home(){
     const classes = useStyles();
-    const [selectedGrade, setSelectedGrade] = useState(null);
+    const courses = useSelector(state => state.courses)
+    const selectedCourses = useSelector(state => state.selectedCourses)
+    const dispatch = useDispatch();
 
     const clickedChip = (grade) => {
-      setSelectedGrade(grade);
-      console.log(selectedGrade);
+      let filterData = courses.filter(course => (course.grade == grade));
+      dispatch(selectedCourses(filterData));
+    }
+    const clickedAvatar = (category) => {
+      let filterData = selectedCourses.filter(course => (course.category == category));
+      dispatch(selectedCourses(filterData));
     }
 
     return(
@@ -53,26 +61,26 @@ export default function Home(){
               <Grid item  justify="center" className={classes.displayFont}>Filter by Tech</Grid>
               <Grid container  alignItems="center" className={classes.display}>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"sex"}  />
+                  <CategoryFilterAvatar category={"sex"} clickedAvatar={clickedAvatar} />
                 </Grid>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"etiquett"} />
+                  <CategoryFilterAvatar category={"etiquett"} clickedAvatar={clickedAvatar} />
                 </Grid>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"safety"} />
+                  <CategoryFilterAvatar category={"safety"} clickedAvatar={clickedAvatar} />
                 </Grid>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"smoke"} />
+                  <CategoryFilterAvatar category={"smoke"} clickedAvatar={clickedAvatar} />
                 </Grid>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"roadmap"} />
+                  <CategoryFilterAvatar category={"roadmap"} clickedAvatar={clickedAvatar} />
                 </Grid>
                 <Grid item sm={3}>
-                  <CategoryFilterAvatar category={"heart"} />
+                  <CategoryFilterAvatar category={"heart"} clickedAvatar={clickedAvatar} />
                 </Grid>
               </Grid>
             </Grid>
-            <CardPage selectedGrade={selectedGrade} />
+            <CardPage />
           </Grid>
         </Container>
     )
