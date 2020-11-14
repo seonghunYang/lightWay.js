@@ -7,19 +7,21 @@ import {
 import HomePage from './pages/HomePage';
 import WatchVideoPage from './pages/WatchVideoPage';
 import CourseRequestPage from './pages/CourseRequestPage';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <HomePage/>
-        </Route>
-        <Route path="/couse/:id">
+    <Router>   
+      <Navigation />
+      <Switch>  
+        <Route path="/course/:id">
           <CourseRequestPage />
         </Route>
         <Route path="/watch/:id">
           <WatchVideoPage />
+        </Route>
+        <Route path="/">
+          <HomePage/> 
         </Route>
       </Switch>
     </Router>
