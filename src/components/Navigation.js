@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,8 +52,7 @@ export default function Navigation() {
               Roadmap
             </Button>
           </div>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Join</Button>
+          <PersonPinIcon/>
         </Toolbar>
       </AppBar>
     </div>

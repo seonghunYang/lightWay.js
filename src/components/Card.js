@@ -15,7 +15,7 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme)=>({
   card_coures: {
-    padding: theme.spacing(3),
+    width: 300,
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -28,12 +28,15 @@ const useStyles = makeStyles((theme)=>({
   cardContent: {
     flexGrow: 1,
   },
+  font: {
+      fontWeight: "bold"
+  }
   
 }));
 
 const CourseItem =({course}) => {
     const classes = useStyles();
-    const {id, name, teacher} = course;
+    const {id, name, teacher, img} = course;
     return(
         <Grid item key={id} sm={4}>
             <Card className={classes.card_coures}>
@@ -44,14 +47,14 @@ const CourseItem =({course}) => {
                 className={classes.cardMedia}
                 component="img"
                 alt="Contemplative Reptile"
-                image="https://source.unsplash.com/random"
+                image={img}
                 title="Contemplative Reptile"
                 />
                 <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h2" component="h2">
+                <Typography gutterBottom variant="h6" component="h6" className={classes.font} > 
                     {name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary" component="h6">
                     강사: {teacher}
                 </Typography>
                 </CardContent>

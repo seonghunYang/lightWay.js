@@ -6,3 +6,16 @@ export function selectCourses(selectedCourses) {
     payload: selectedCourses,
   }
 }
+export function createComment(comment) {
+  return {
+    type: "CREATE_COMMENT",
+    payload: comment,
+  }
+}
+
+export function selectVideos(selectedVideos) {
+  return {
+    type: "SELECT_VIDEOS",
+    payload: selectedVideos,
+  }
+}

@@ -59,7 +59,7 @@ export default function Home(){
             </Grid>
             <Divider flexItem orientation="vertical" variant="middle" sm={1} />
             <Grid item sm={6} >
-              <Grid item  justify="center" className={classes.displayFont}>Filter by Tech</Grid>
+              <Grid item  justify="center" className={classes.displayFont}>Filter by Category</Grid>
               <Grid container  alignItems="center" className={classes.display}>
                 <Grid item sm={3}>
                   <CategoryFilterAvatar category={"sex"} clickedAvatar={clickedAvatar} />
